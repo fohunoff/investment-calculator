@@ -1,22 +1,6 @@
 import { useState } from "react"
 
-export default function UserInput() {
-  const [userInput, setUserInput] = useState({
-    initialInvestment: 10000,
-    annualInvestment: 1200,
-    expectedReturn: 6,
-    duration: 10
-  });
-
-  function handleChange(inputIdentifier, newValue) {
-    setUserInput((prevUserInput) => {
-      return {
-        ...prevUserInput,
-        [inputIdentifier]: newValue,
-      }
-    })
-  }
-
+export default function UserInput({ userInput, onChange }) {
   return (
     <section id="user-input">
       <div className="input-group">
@@ -25,7 +9,7 @@ export default function UserInput() {
           <input
             type="number"
             value={userInput.initialInvestment}
-            onChange={(evt) => handleChange('initialInvestment', evt.target.value)}
+            onChange={(evt) => onChange('initialInvestment', evt.target.value)}
             required
           />
         </p>
@@ -34,7 +18,7 @@ export default function UserInput() {
           <input
             type="number"
             value={userInput.annualInvestment}
-            onChange={(evt) => handleChange('annualInvestment', evt.target.value)}
+            onChange={(evt) => onChange('annualInvestment', evt.target.value)}
             required
           />
         </p>
@@ -46,7 +30,7 @@ export default function UserInput() {
           <input
             type="number"
             value={userInput.expectedReturn}
-            onChange={(evt) => handleChange('expectedReturn', evt.target.value)}
+            onChange={(evt) => onChange('expectedReturn', evt.target.value)}
             required
           />
         </p>
@@ -55,10 +39,14 @@ export default function UserInput() {
           <input
             type="number"
             value={userInput.duration}
-            onChange={(evt) => handleChange('duration', evt.target.value)}
+            onChange={(evt) => onChange('duration', evt.target.value)}
             required
           />
         </p>
+      </div>
+
+      <div className="input-group">
+        <button>Calculate</button>
       </div>
     </section>
   )
