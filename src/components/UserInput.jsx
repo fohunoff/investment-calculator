@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 export default function UserInput({ userInput, onChange }) {
   return (
     <section id="user-input">
@@ -43,10 +41,6 @@ export default function UserInput({ userInput, onChange }) {
             required
           />
         </p>
-      </div>
-
-      <div className="input-group">
-        <button>Calculate</button>
       </div>
     </section>
   )

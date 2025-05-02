@@ -1,5 +1,15 @@
-export default function Results() {
-    return (
-      <p>Results</p>
-    )
+import { calculateInvestmentResults } from "../util/investment";
+
+export default function Results({ userInput }) {
+  console.log(userInput);
+
+  const resultsData = calculateInvestmentResults(userInput);
+
+  console.log(resultsData);
+  
+  
+
+  return (
+    <p>Results</p>
+  )
 }
